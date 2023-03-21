@@ -19,7 +19,9 @@ class MyApp extends StatelessWidget {
         // Este es el tema de la aplicación. Cambiará los colores de la interfaz de usuario.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'), //Este es el widget principal de la aplicación.
+      home: const MyHomePage(
+          title:
+              'Flutter Demo Home Page'), //Este es el widget principal de la aplicación.
     );
   }
 }
@@ -34,13 +36,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0; // Esta variable guarda la cantidad de veces que el botón de incrementar ha sido presionado.
+  int _counter =
+      0; // Esta variable guarda la cantidad de veces que el botón de incrementar ha sido presionado.
   int _level = 0; // Esta variable guarda el nivel actual.
 
   void _incrementCounter() {
     setState(() {
       _counter++; // Incrementa el contador cada vez que se presiona el botón.
-      if (_counter % 10 == 0) { // Si el contador es divisible por 10 (después de sumar uno), el nivel sube.
+      if (_counter % 10 == 0) {
+        // Si el contador es divisible por 10 (después de sumar uno), el nivel sube.
         _showLevelUpDialog(); // Muestra una ventana emergente con un mensaje de felicitaciones
         _level = _counter ~/ 10; // Actualiza la variable de nivel
       }
@@ -49,14 +53,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _decrementCounter() {
     setState(() {
-      if (_counter > 0) { // Si el contador es mayor a cero, permite restar uno.
+      if (_counter > 0) {
+        // Si el contador es mayor a cero, permite restar uno.
         _counter--;
       }
     });
   }
 
   Future<void> _showLevelUpDialog() async {
-    await showDialog( // Muestra una ventana emergente con información de nivel alcanzado.
+    await showDialog(
+      // Muestra una ventana emergente con información de nivel alcanzado.
       context: context,
       builder: (_) => AlertDialog(
         title: const Text('Nivel Completado'),
@@ -97,13 +103,15 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           FloatingActionButton(
             onPressed: _decrementCounter,
-            tooltip: 'Decrement', // Información mostrada cuando se mantiene presionado el botón.
+            tooltip:
+                'Decrement', // Información mostrada cuando se mantiene presionado el botón.
             child: const Icon(Icons.remove), // Icono del botón.
           ),
           const SizedBox(width: 16), // Espacio entre ambos botones.
           FloatingActionButton(
             onPressed: _incrementCounter,
-            tooltip: 'Increment', // Información mostrada cuando se mantiene presionado el botón.
+            tooltip:
+                'Increment', // Información mostrada cuando se mantiene presionado el botón.
             child: const Icon(Icons.add), // Icono del botón.
           ),
         ],
@@ -111,4 +119,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-```

@@ -1,36 +1,31 @@
+// Importa el paquete de Flutter para trabajar con widgets visuales y agregarlos a la aplicación
 import 'package:flutter/material.dart';
 
 void main() {
+  // Llama al método run app para correr la aplicación
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key});
 
-  // This widget is the root of your application.
+  // Este widget es el root o raíz de la aplicación.
   @override
   Widget build(BuildContext context) {
+    // Retorna una instancia de Material App, que representa la configuración de la aplicación.
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
+        // Este es el tema de la aplicación. Cambiará los colores de la interfaz de usuario.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'), //Este es el widget principal de la aplicación.
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title});
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -39,29 +34,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  int _level = 0;
+  int _counter = 0; // Esta variable guarda la cantidad de veces que el botón de incrementar ha sido presionado.
+  int _level = 0; // Esta variable guarda el nivel actual.
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
-      if (_counter % 10 == 0) {
-        _showLevelUpDialog();
-        _level = _counter ~/ 10;
+      _counter++; // Incrementa el contador cada vez que se presiona el botón.
+      if (_counter % 10 == 0) { // Si el contador es divisible por 10 (después de sumar uno), el nivel sube.
+        _showLevelUpDialog(); // Muestra una ventana emergente con un mensaje de felicitaciones
+        _level = _counter ~/ 10; // Actualiza la variable de nivel
       }
     });
   }
 
   void _decrementCounter() {
     setState(() {
-      if (_counter > 0) {
+      if (_counter > 0) { // Si el contador es mayor a cero, permite restar uno.
         _counter--;
       }
     });
   }
 
   Future<void> _showLevelUpDialog() async {
-    await showDialog(
+    await showDialog( // Muestra una ventana emergente con información de nivel alcanzado.
       context: context,
       builder: (_) => AlertDialog(
         title: const Text('Nivel Completado'),
@@ -76,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  // Define el esqueleto de la página principal, utilizando el Scaffold de Flutter.
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,11 +83,11 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'You have pushed the button this many times:', // Título de la aplicación.
             ),
             Text(
-              '$_counter (level $_level)',
-              style: Theme.of(context).textTheme.headline6,
+              '$_counter (level $_level)', // Muestra el contador y el nivel en texto, utilizando valores guardados en las variables.
+              style: Theme.of(context).textTheme.headline6, // Estilo del texto.
             ),
           ],
         ),
@@ -101,17 +97,18 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           FloatingActionButton(
             onPressed: _decrementCounter,
-            tooltip: 'Decrement',
-            child: const Icon(Icons.remove),
+            tooltip: 'Decrement', // Información mostrada cuando se mantiene presionado el botón.
+            child: const Icon(Icons.remove), // Icono del botón.
           ),
-          const SizedBox(width: 16),
+          const SizedBox(width: 16), // Espacio entre ambos botones.
           FloatingActionButton(
             onPressed: _incrementCounter,
-            tooltip: 'Increment',
-            child: const Icon(Icons.add),
+            tooltip: 'Increment', // Información mostrada cuando se mantiene presionado el botón.
+            child: const Icon(Icons.add), // Icono del botón.
           ),
         ],
       ),
     );
   }
 }
+```

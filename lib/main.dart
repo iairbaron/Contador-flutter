@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 void main() {
   // Llama al método run app para correr la aplicación
-  runApp(const MyApp());
+  runApp(const MyWidget());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
+class MyWidget extends StatelessWidget {
+  const MyWidget({Key? key}) : super(key: key);
 
   // Este widget es el root o raíz de la aplicación.
   @override
@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     // Retorna una instancia de Material App, que representa la configuración de la aplicación.
     return MaterialApp(
       title: 'Flutter Demo',
+
       theme: ThemeData(
         // Este es el tema de la aplicación. Cambiará los colores de la interfaz de usuario.
         primarySwatch: Colors.blue,
@@ -93,7 +94,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter (level $_level)', // Muestra el contador y el nivel en texto, utilizando valores guardados en las variables.
-              style: Theme.of(context).textTheme.headline6, // Estilo del texto.
+              style:
+                  Theme.of(context).textTheme.titleLarge, // Estilo del texto.
             ),
           ],
         ),
